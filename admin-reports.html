@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Reports - TLOOK</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>.admin-sidebar{min-height:100vh;background:#fff;border-right:1px solid #eef0f3}.admin-main{padding:2rem}</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TLOOK ADMIN</a>
+      <div class="d-flex ms-auto">
+        <a class="btn btn-outline-secondary me-2" href="index.html">View site</a>
+        <a class="btn btn-danger" href="#">Đăng xuất</a>
+      </div>
+    </div>
+  </nav>
+  <div class="d-flex">
+    <aside class="admin-sidebar p-4" style="width:260px;">
+      <h5 class="mb-4">Dashboard</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin-products.html">Danh sách sản phẩm</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin-orders.html">Danh sách đơn hàng</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin-customers.html">Quản lý khách hàng</a></li>
+        <li class="nav-item"><a class="nav-link active" href="admin-reports.html">Thống kê & Báo cáo</a></li>
+      </ul>
+    </aside>
+    <main class="admin-main flex-grow-1">
+      <div class="container-fluid">
+        <h3>Thống kê & Báo cáo</h3>
+        <p class="text-muted">Tổng hợp doanh thu, đơn hàng và báo cáo</p>
+        <div class="row g-3 mb-4">
+          <div class="col-md-3"><div class="card p-3"><div class="small text-muted">Tổng doanh thu</div><div class="h5" id="reportTotalSales">0 đ</div></div></div>
+          <div class="col-md-3"><div class="card p-3"><div class="small text-muted">Tổng đơn hàng</div><div class="h5" id="reportOrdersCount">0</div></div></div>
+          <div class="col-md-3"><div class="card p-3"><div class="small text-muted">Tổng khách hàng</div><div class="h5" id="reportCustomersCount">0</div></div></div>
+          <div class="col-md-3"><div class="card p-3"><div class="small text-muted">Tổng sản phẩm</div><div class="h5" id="reportProductsCount">0</div></div></div>
+        </div>
+        <div class="card p-3 mb-3"><canvas id="salesChart" height="120"></canvas></div>
+        <div class="card p-3"><h5>Top sản phẩm bán chạy</h5><div id="topProductsList"></div></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

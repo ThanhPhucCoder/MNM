@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Customers - TLOOK</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>.admin-sidebar{min-height:100vh;background:#fff;border-right:1px solid #eef0f3}.admin-main{padding:2rem}</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TLOOK ADMIN</a>
+      <div class="d-flex ms-auto">
+        <a class="btn btn-outline-secondary me-2" href="index.html">View site</a>
+        <a class="btn btn-danger" href="#">Đăng xuất</a>
+      </div>
+    </div>
+  </nav>
+  <div class="d-flex">
+    <aside class="admin-sidebar p-4" style="width:260px;">
+      <h5 class="mb-4">Dashboard</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin-products.html">Danh sách sản phẩm</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin-orders.html">Danh sách đơn hàng</a></li>
+        <li class="nav-item"><a class="nav-link active" href="admin-customers.html">Quản lý khách hàng</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin-reports.html">Thống kê & Báo cáo</a></li>
+      </ul>
+    </aside>
+    <main class="admin-main flex-grow-1">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3>Quản lý tài khoản khách hàng</h3>
+          <div><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addCustomerModal">Thêm người dùng</button></div>
+        </div>
+        <div class="card p-3 mb-3">
+          <input id="customerSearch" class="form-control" placeholder="Tìm kiếm theo tên, email...">
+        </div>
+        <div class="card p-3">
+          <table class="table">
+            <thead><tr><th>Tên</th><th>Email</th><th>SĐT</th><th>Vai trò</th><th>Ngày tạo</th><th>Thao tác</th></tr></thead>
+            <tbody id="customersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- customer modal -->
+  <div class="modal fade" id="addCustomerModal" tabindex="-1">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title">Thêm / Sửa khách hàng</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body">
+          <form id="customerForm">
+            <input type="hidden" id="customerId">
+            <div class="mb-3"><label class="form-label">Tên</label><input id="customerName" class="form-control" required></div>
+            <div class="mb-3"><label class="form-label">Email</label><input id="customerEmail" type="email" class="form-control" required></div>
+            <div class="mb-3"><label class="form-label">Điện thoại</label><input id="customerPhone" class="form-control"></div>
+            <div class="text-end"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Hủy</button><button class="btn btn-primary" type="submit">Lưu</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
